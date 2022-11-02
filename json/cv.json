@@ -1,0 +1,138 @@
+{
+  "contact":
+    {
+      "address": "Göran Elgfelts Gata 1A",
+      "postaddress": "18339 Täby",
+      "phone": "(+46)73-412 3132",
+      "email": "Linnea.Svensson@Chasacademy.se"
+    },
+
+    "languages": [
+      {
+        "language": "Swedish",
+        "lvl": 5
+      },
+      {
+        "language": "English",
+        "lvl": 5
+      },
+      {
+        "language": "Japanese",
+        "lvl": 2
+      }
+    ],    
+
+  "hobbies": [
+    {
+      "hobby": "Gaming",
+      "icon": "fa-solid fa-gamepad"
+    },
+    {
+      "hobby": "Design",
+      "icon": "fa-solid fa-pen-nib"
+    },
+    {
+      "hobby": "Anime",
+      "icon": "fa-solid fa-tv"
+    },
+    {
+      "hobby": "Sewing",
+      "icon": "fa-solid fa-shirt"
+    }
+  ],
+
+  "summary":
+    {
+      "summary": "Frontend Development student currently studying at Chasacademy in Stockholm. Specializing in HTML, CSS and Javascript with room for more experience. I'm currently looking for LIA, feel free to reach out."
+    },
+
+    "skills": [
+      {
+        "skill": "Quick learner"
+      },
+      {
+        "skill": "Creative design"
+      },
+      {
+        "skill": "Teamwork"
+      },
+      {
+        "skill": "Decision Making"
+      },
+      {
+        "skill": "Complex problem solver"
+      },
+      {
+        "skill": "Service-focused"
+      }
+    ],
+
+    "experience": [
+      {
+        "job": "Arlanda, Sodexho",
+        "year": "2007-2008"
+      },
+      {
+        "job": "SA Försäljnings AB",
+        "year": "2010-2010"
+      },
+      {
+        "job": "Boom, Eastern Outfit AB",
+        "year": "2010-2013"
+      },
+      {
+        "job": "SOOK",
+        "year": "2014-2014"
+      },
+      {
+        "job": "Enklare Liv",
+        "year": "2014-2017"
+      },
+      {
+        "job": "Gulfynd, Iduna AB",
+        "year": "2017-current"
+      }
+    ],
+
+    "education": [
+      {
+        "school": "Näsbydal, Highschool",
+        "year": "2002-2005"
+      },
+      {
+        "school": "Täby Enskilda, Senior Highschool ",
+        "year": "2005-2007"
+      },
+      {
+        "school": "Jensen Education School AB, Programming",
+        "year": "2012-2013"
+      },
+      {
+        "school": "Stockholm University, Japanese",
+        "year": "2020-2022"
+      },
+      {
+        "school": "Chasacademy, Frontend Development Mobile & Web",
+        "year": "2022-"
+      }
+    ],
+
+    "certifications": [
+      {
+        "certification": "HTML",
+        "lvl": 5 
+      },
+      {
+        "certification": "CSS",
+        "lvl": 5 
+      },
+      {
+        "certification": "JavaScript",
+        "lvl": 2 
+      },
+      {
+        "certification": "Java",
+        "lvl": 1 
+      }
+    ]
+}

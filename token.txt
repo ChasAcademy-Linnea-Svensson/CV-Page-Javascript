@@ -1,0 +1,6 @@
+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
+
+
+git remote add origin https://github.com/ChasAcademy-Linnea-Svensson/linnea-svensson-cv.git
+git branch -M main
+git push -u origin main
