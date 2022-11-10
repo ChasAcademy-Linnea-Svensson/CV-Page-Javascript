@@ -1,14 +1,14 @@
-const gridContainer = document.querySelector('.portfolio-grid-container'),
-      loading = document.querySelector('.loading');
+const gridContainer = document.querySelector('.frontpage-portfolio-container');
+      // loading = document.querySelector('.loading');
 
 //Add github id here to insert into project gridContainer
-const gitProjects = [560837329, 558828247, 562138870];
+const gitProjects = [558828247, 562138870];
       
 let descArray = [],
     gitBtnArray = [],
     siteBtnArray = [];
 
-loading.classList.toggle('hide');
+// loading.classList.toggle('hide');
 
 //Creates an empty modal
 function createEmptyModal() {
@@ -30,7 +30,7 @@ function createEmptyModal() {
   </div>
   `;
 
-  document.body.insertAdjacentHTML("afterbegin", modal);
+  gridContainer.insertAdjacentHTML("afterbegin", modal);
   toggleModal();
 }
 
@@ -43,7 +43,6 @@ function toggleModal() {
 function createProjectDiv(nr, arr) {
   gridContainer.innerHTML += `
   <div class="project-box-container" id="${arr.name}">
-    <h5>${arr.name}</h5>
     <div class="img-box box${nr}"></div>
   </div>
   `;
@@ -63,7 +62,6 @@ async function fetchGithubApi() {
   const response = await fetch('https://api.github.com/users/ChasAcademy-Linnea-Svensson/repos');
 
   if (response.ok){
-    gridContainer.innerHTML = '';
     const data = await response.json();
 
     return data;
@@ -82,7 +80,7 @@ fetchGithubApi()
         }
       }
     })
-    loading.classList.toggle('hide');
+    // loading.classList.toggle('hide');
     return o;
 //Sets an eventlistener for each project that creates a modal on click
 }).then((o) => {

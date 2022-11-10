@@ -385,21 +385,24 @@ nav ul li a:hover {
   overflow: hidden;
 }
 
-.project-img-container-1, .project-img-container-2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  height: auto;
-  width: 60%;
-  transition: all 1s ease;
-  border-radius: 20px;
+.frontpage-portfolio-container .project-box-container {
+  width: 50%;
+  transition: all 0.5s;
 }
 
-.project-img-container-1:hover, .project-img-container-2:hover {
-  transform: scale(105%);
+.frontpage-portfolio-container .project-box-container:hover {
+  cursor: pointer;
+  z-index: 2;
+  scale: 105%;
+}
+
+.frontpage-portfolio-container .project-box-container:nth-child(2) {
+  transform: translate(-7rem, 5rem);
   z-index: 1;
+}
+
+.frontpage-portfolio-container .project-box-container:last-child {
+  transform: translate(7rem, -5rem);
 }
 
 .btn-container {
