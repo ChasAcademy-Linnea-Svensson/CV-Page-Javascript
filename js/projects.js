@@ -1,10 +1,13 @@
-const gridContainer = document.querySelector('.portfolio-grid-container');
+const gridContainer = document.querySelector('.portfolio-grid-container'),
+      loading = document.querySelector('.loading');
 
 //Add github id here to insert into project gridContainer
-const gitProjects = [558828247, 562138870];
-let descArray = [];
+const gitProjects = [560837329, 558828247, 562138870];
+let descArray = [],
+    gitBtnArray = [],
+    siteBtnArray = [];
 
-gridContainer.innerHTML = 'Fetching projects from GitHub';
+loading.classList.toggle('hide');
 
 //Creates an empty modal
 function createEmptyModal() {
@@ -16,8 +19,8 @@ function createEmptyModal() {
       <div class="modal-col3">
         <div class="modal-text"></div>
         <div class="modal-btn-container">
-          <a target="_blank" class="bg-light modal-btn">GitHub link</a>
-          <a target="_blank" class="bg-light modal-btn">Go to site</a>
+          <a target="_blank" class="bg-light modal-btn github-btn">GitHub link</a>
+          <a target="_blank" class="bg-light modal-btn site-btn">Go to site</a>
         </div>
       </div>
     </div>
@@ -39,7 +42,7 @@ function toggleModal() {
 function createProjectDiv(nr, arr) {
   gridContainer.innerHTML += `
   <div class="project-box-container" id="${arr.name}">
-    <h5>Project ${nr}</h5>
+    <h5>${arr.name}</h5>
     <div class="img-box box${nr}"></div>
   </div>
   `;
@@ -50,6 +53,8 @@ function createProjectDiv(nr, arr) {
   `;
 
   descArray.push(arr.description);
+  gitBtnArray.push(arr.html_url);
+  siteBtnArray.push(`https://chasacademy-linnea-svensson.github.io/${arr.name}/`);
 }
 
 //Fetch github
@@ -76,7 +81,7 @@ fetchGithubApi()
         }
       }
     })
-
+    loading.classList.toggle('hide');
     return o;
 //Sets an eventlistener for each project that creates a modal on click
 }).then((o) => {
@@ -89,8 +94,11 @@ fetchGithubApi()
             modalContainer = document.querySelector('.modal-container'),
             preview = document.querySelector('#modal-previews'),
             modalImage = document.querySelector('.modal-col1'),
-            modalDescription = document.querySelector('.modal-col3');
+            modalDescription = document.querySelector('.modal-col3'),
+            gitBtn = document.querySelector('.github-btn'),
+            siteBtn = document.querySelector('.site-btn');
 
+      //Set preview image
       for(let i = 0; i < 3; i++) {
         preview.innerHTML += `
         <div class="modal-prev ${project.getAttribute('id')}">
@@ -100,11 +108,22 @@ fetchGithubApi()
         modalImage.style.background = `url('https://raw.githubusercontent.com/ChasAcademy-Linnea-Svensson/${project.getAttribute('id')}/main/img/preview/1.png') no-repeat center center/cover`;
       }
 
+      const modalPrev = document.querySelectorAll('.modal-prev');
+
+      //Sets background if preview img is clicked
+      modalPrev.forEach((prev, index) => {
+        modalPrev[index].addEventListener('click', ()=> {
+          modalImage.style.background = `url(${prev.firstElementChild.src}) no-repeat center center/cover`;
+        });
+      })
+
       // Set description
       modalDescription.insertAdjacentText("afterbegin",
-        descArray[index])
+        descArray[index]);
 
-      console.log(index);
+      //Set button links
+      gitBtn.href = gitBtnArray[index];
+      siteBtn.href = siteBtnArray[index];
             
       //Close down modal and remove from body
       exit.addEventListener('click', () => {
@@ -116,6 +135,9 @@ fetchGithubApi()
         exit.parentElement.parentElement.remove();
       })
       modalContainer.addEventListener('click', (e) => {
+        e.stopImmediatePropagation();
+      })
+      preview.addEventListener('click', (e) => {
         e.stopImmediatePropagation();
       })
     })
