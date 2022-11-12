@@ -2,7 +2,7 @@ const gridContainer = document.querySelector('.portfolio-grid-container'),
       loading = document.querySelector('.loading');
 
 //Add github id here to insert into project gridContainer
-const gitProjects = [560837329, 558828247, 562138870];
+const gitProjects = [560837329, 558828247, 562138870, 565170393];
       
 let descArray = [],
     gitBtnArray = [],
@@ -75,6 +75,7 @@ async function fetchGithubApi() {
 //Calling the fetch and then creates as many project divs as there is id:s in the project array
 fetchGithubApi()
   .then(o => {
+    console.log(o);
     o.forEach(arr => {
       for(let i = 0; i <= gitProjects.length; i++) {
         if (arr.id === gitProjects[i]){

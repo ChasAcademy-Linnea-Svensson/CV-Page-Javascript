@@ -973,6 +973,10 @@ footer .copyright {
   overflow: hidden;
 }
 
+.project-box-container {
+  cursor: pointer;
+}
+
 .project-box-container .img-box {
   height: 20rem;
   width: 100%;
