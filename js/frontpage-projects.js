@@ -1,5 +1,4 @@
 const gridContainer = document.querySelector('.frontpage-portfolio-container');
-      // loading = document.querySelector('.loading');
 
 //Add github id here to insert into project gridContainer
 const gitProjects = [558828247, 565170393];
