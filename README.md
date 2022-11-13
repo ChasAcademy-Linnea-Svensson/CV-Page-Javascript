@@ -1,4 +1,4 @@
-# My CV
+# <p style="text-align: center;">My CV</p>
 
 ### Creator
 
