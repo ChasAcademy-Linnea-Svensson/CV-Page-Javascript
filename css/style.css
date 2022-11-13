@@ -404,7 +404,7 @@ nav ul li a:hover {
 
 .frontpage-portfolio-container .project-box-container {
   width: 50%;
-  transition: all 0.5s;
+  transition: none;
 }
 
 .frontpage-portfolio-container .project-box-container:hover {

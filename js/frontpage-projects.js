@@ -29,7 +29,7 @@ function createEmptyModal() {
   </div>
   `;
 
-  gridContainer.insertAdjacentHTML("afterbegin", modal);
+  document.body.insertAdjacentHTML("afterbegin", modal);
   toggleModal();
 }
 
