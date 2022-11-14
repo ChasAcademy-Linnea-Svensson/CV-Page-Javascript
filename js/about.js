@@ -1,3 +1,4 @@
+// About page pictureswap
 const prev = document.querySelector('.prev'),
       next = document.querySelector('.next'),
       circles = document.querySelectorAll('.circle'),
@@ -7,6 +8,7 @@ const prev = document.querySelector('.prev'),
 let currentActive = 1;
 let bar;
 
+//Previous button
 prev.addEventListener('click', () => {
   currentActive--;
   if (currentActive < 1) {
@@ -21,6 +23,7 @@ prev.addEventListener('click', () => {
   updateBar();
 })
 
+//Next button
 next.addEventListener('click', () => {
   currentActive++;
   if (currentActive > circles.length) {
@@ -35,6 +38,7 @@ next.addEventListener('click', () => {
   updateBar();
 })
 
+//Updates bar and sets background
 function updateBar() {
   bar = (currentActive - 1)  / (circles.length - 1) * 100;
   barDiv.style.width = bar + '%';
