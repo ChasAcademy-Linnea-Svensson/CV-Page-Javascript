@@ -1,0 +1,38 @@
+[
+  {
+    "skill": "Java",
+    "year": 2012,
+    "description": "Basic knowledge learned from a komvux course.",
+    "img": "img/timetree/java.png"
+  },
+  {
+    "skill": "HTML",
+    "year": 2013,
+    "description": "Good knowledge and confident enough to work with.",
+    "img": "img/timetree/html.png"
+  },
+  {
+    "skill": "Webserver Programming",
+    "year": 2013,
+    "description": "Studied webservers and databases at Komvux",
+    "img": "img/timetree/webservers.png"
+  },
+  {
+    "skill": "CSS",
+    "year": 2022,
+    "description": "Good knowledge, Confident enough to create basic projects.",
+    "img": "img/timetree/css.png"
+  },
+  {
+    "skill": "Javascript",
+    "year": 2022,
+    "description": "Currently studying at ChasAcademy, can make small games and projects.",
+    "img": "img/timetree/javascript.png"
+  },
+  {
+    "skill": "Github/Git",
+    "year": 2022,
+    "description": "First used for my school projects and currently working with it",
+    "img": "img/timetree/github.png"
+  }
+]

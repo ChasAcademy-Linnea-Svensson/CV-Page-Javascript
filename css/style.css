@@ -22,7 +22,6 @@ a {
   --light-text-color: #fff;
   --light-shadow-color: #cdcdcd;
   --dark-shadow-color: #333;
-  --small-shadow: 2px 2px 5px;
   --hover-color: #e9bbcb;
   --line-color: #cdcdcd;
   --box-color: #ffc2d8;
@@ -134,7 +133,7 @@ nav {
   background: transparent;
   padding: 0 1rem;
   color: var(--light-text-color);
-  text-shadow: var(--dark-shadow-color) var(--small-shadow);
+  text-shadow: var(--dark-shadow-color) 2px 2px 5px;
   z-index: 3;
 }
 
@@ -345,7 +344,7 @@ nav ul li a:hover {
 
 /** timetree boxes **/
 .list-container ul li div {
-  width: 17rem;
+  width: 22rem;
   height: 10rem;
   background: var(--light-bg-color);
   border-radius: 10px;
@@ -359,14 +358,16 @@ nav ul li a:hover {
 
 .div-right {
   position: relative;
-  transform: translate(3rem, -3.5rem);
+  transform: translate(2rem, -2rem);
 }
 
 .div-right::after {
   content: '';
   position: absolute;
   background: var(--light-bg-color);
-  transform: translate(-1.5rem, 1.85rem);
+  bottom: 0rem;
+  left: -0.6rem;
+  /* transform: translate(-9.8rem, 1.85rem); */
   border-radius: 100% 0 0 0;
   height: 1rem;
   width: 1rem;
@@ -374,14 +375,15 @@ nav ul li a:hover {
 
 .div-left {
   position: relative;
-  transform: translate(-20rem, -3.5rem);
+  transform: translate(-23.7rem, -3.5rem);
 }
 
 .div-left::after {
   content: '';
   position: absolute;
   background: var(--light-bg-color);
-  transform: translate(15.5rem, 0.30rem);
+  bottom: 0;
+  right: -0.6rem;
   border-radius: 0 100% 0 0;
   height: 1rem;
   width: 1rem;
@@ -389,6 +391,18 @@ nav ul li a:hover {
 
 .list-container a {
   margin: 2rem 0;
+}
+
+.skilltree-skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skilltree-skill img{
+  height: 90%;
+  width: auto;
+  margin: 0 0.5rem;
 }
 
 /** Frontpage Portfolio **/
@@ -404,13 +418,6 @@ nav ul li a:hover {
 
 .frontpage-portfolio-container .project-box-container {
   width: 50%;
-  transition: none;
-}
-
-.frontpage-portfolio-container .project-box-container:hover {
-  cursor: pointer;
-  z-index: 2;
-  scale: 105%;
 }
 
 .frontpage-portfolio-container .project-box-container:nth-child(2) {
@@ -418,8 +425,20 @@ nav ul li a:hover {
   z-index: 1;
 }
 
+.frontpage-portfolio-container .project-box-container:nth-child(2):hover {
+  cursor: pointer;
+  transform: translate(-7rem, 5rem) scale(1.1);
+  z-index: 2;
+}
+
 .frontpage-portfolio-container .project-box-container:last-child {
   transform: translate(7rem, -5rem);
+}
+
+.frontpage-portfolio-container .project-box-container:last-child:hover {
+  cursor: pointer;
+  transform: translate(7rem, -5rem) scale(1.1);
+  z-index: 2;
 }
 
 .btn-container {
@@ -1035,7 +1054,7 @@ footer .copyright {
 }
 
 .preview-img-container .img-box:hover {
-  transform: scale(120%);
+  transform: scale(1.2);
   z-index: 1;
 }
 
@@ -1071,7 +1090,7 @@ footer .copyright {
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  position: none;
+  /* position: none; */
   margin-bottom: 1rem;
   max-height: 40vh;
 }
@@ -1084,10 +1103,6 @@ footer .copyright {
 
 .portfolio .img-box a {
   transition: all 0.5s ease;
-}
-
-.portfolio .img-box a:hover {
-  transform: scale(110%);
 }
 
 .portfolio h5 {
@@ -1194,7 +1209,6 @@ button {
     height: 70vh;
     width: 70%;
     border-radius: 20px;
-    position: none;
     margin-bottom: 1rem;
   }
 
@@ -1234,7 +1248,7 @@ button {
   
   .list-container ul li div {
     width: 28rem;
-    height: 8rem;
+    height: 10rem;
     padding: 1rem;
   }
   
@@ -1242,16 +1256,8 @@ button {
     transform: translate(3rem, -3.5rem);
   }
   
-  .div-right::after {
-    transform: translate(-1.6rem, 0.7rem);
-  }
-  
   .div-left {
     transform: translate(-30.5rem, -3.5rem);
-  }
-  
-  .div-left::after {
-    transform: translate(26.5rem, 0.7rem);
   }
 
   /** Portfolio **/
@@ -1292,33 +1298,6 @@ button {
   }
 
   /** Navbar **/
-  /** Optional navbar to use with js later **/
-  /* nav {
-    justify-content: center;
-    height: 27vh;
-  }
-  nav ul {
-    margin: 0;
-    flex-direction: column;
-  }
-  nav ul li {
-    width: 100vw;
-    text-align: left;
-    border-bottom: var(--light-text-color) solid 1px;
-    background: var(--light-bg-color);
-    padding: 0.5rem 0;
-    min-width: 100%;
-  }
-  nav ul li a {
-    height: 100%;
-    width: 100vw;
-    padding: 0.5rem 47% 0.5rem 46%;
-  }
-  nav ul li a:hover {
-    background: var(--hover-color);
-    color: var(--light-text-color);
-    border: none;
-  } */
 
   nav {
     background: var(--light-bg-color);
@@ -1354,12 +1333,6 @@ button {
   .frontpage-timetree-container {
     height: fit-content;
   }
-
-  .list-container ul li {
-    background: #000;
-    transform: translateX(-15rem);
-    height: 10rem;
-  }
   
   .list-container ul li {
     background: #000;
@@ -1368,7 +1341,7 @@ button {
   }
 
   .list-container ul li div {
-    width: 20rem;
+    width: 22rem;
     height: 9rem;
   }
 
@@ -1391,6 +1364,7 @@ button {
   .list-container a {
     margin: 0;
   }
+
   /** CV **/
   .cv-container {
     flex-direction: column;
@@ -1466,7 +1440,6 @@ button {
     margin-bottom: 1rem;
     width: 100%;
     border-radius: 20px;
-    position: none;
   }
 
   .project-img-container-1 {
@@ -1728,7 +1701,7 @@ button {
 @media (prefers-color-scheme:dark) and (max-width: 620px) {
   nav ul li a:hover {
     color: var(--dark-mode-dark-color);
-    text-shadow: var(--dark-shadow-color) var(--small-shadow);
+    text-shadow: var(--dark-shadow-color) 2px 2px 5px;
     border-bottom: var(--dark-mode-dark-color) solid 3px;
   }
 }
