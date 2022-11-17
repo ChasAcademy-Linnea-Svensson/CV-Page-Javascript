@@ -25,7 +25,7 @@ function createEmptyModal() {
         </div>
       </div>
     </div>
-    <div class="modal-col2" id="modal-previews">
+    <div class="modal-col2 mobile-hide" id="modal-previews">
       </div>
   </div>
   `;

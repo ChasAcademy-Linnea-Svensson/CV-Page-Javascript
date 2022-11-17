@@ -51,5 +51,5 @@ function updateBar() {
     }
   });
 
-  img.style.background = `url('img/about/${currentActive}.jpg') no-repeat center center/cover`;
+  img.style.background = `url('../img/about/${currentActive}.jpg') no-repeat center center/cover`;
 }
