@@ -13,9 +13,9 @@ My first website that will function as a portfolio and CV for my future career.
 
 Supports screens, tablets, mobile, light/darkmode as well as a styled print.
 
-### Deployed here: :point_down:
+### Deployed here with working contact form: :point_down:
 
-https://chasacademy-linnea-svensson.github.io/CV-Page-Javascript/
+https://linnea-svensson-cv.netlify.app/
 
 ### GitHub repo: :point_down:
 
