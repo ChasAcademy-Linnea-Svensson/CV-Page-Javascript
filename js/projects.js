@@ -1,12 +1,12 @@
 const gridContainer = document.querySelector('.portfolio-grid-container'),
-      loading = document.querySelector('.loading');
+  loading = document.querySelector('.loading');
 
 //Add github id here to insert into project gridContainer
-const gitProjects = [560837329, 558828247, 562138870, 565170393];
-      
+const gitProjects = [560837329, 558828247, 562138870, 565170393, 581674384];
+
 let descArray = [],
-    gitBtnArray = [],
-    siteBtnArray = [];
+  gitBtnArray = [],
+  siteBtnArray = [];
 
 loading.classList.toggle('hide');
 
@@ -30,7 +30,7 @@ function createEmptyModal() {
   </div>
   `;
 
-  document.body.insertAdjacentHTML("afterbegin", modal);
+  document.body.insertAdjacentHTML('afterbegin', modal);
   toggleModal();
 }
 
@@ -55,14 +55,18 @@ function createProjectDiv(nr, arr) {
 
   descArray.push(arr.description);
   gitBtnArray.push(arr.html_url);
-  siteBtnArray.push(`https://chasacademy-linnea-svensson.github.io/${arr.name}/`);
+  siteBtnArray.push(
+    `https://chasacademy-linnea-svensson.github.io/${arr.name}/`
+  );
 }
 
 //Fetch github
 async function fetchGithubApi() {
-  const response = await fetch('https://api.github.com/users/ChasAcademy-Linnea-Svensson/repos');
+  const response = await fetch(
+    'https://api.github.com/users/ChasAcademy-Linnea-Svensson/repos'
+  );
 
-  if (response.ok){
+  if (response.ok) {
     gridContainer.innerHTML = '';
     const data = await response.json();
 
@@ -74,73 +78,77 @@ async function fetchGithubApi() {
 
 //Calling the fetch and then creates as many project divs as there is id:s in the project array
 fetchGithubApi()
-  .then(o => {
-    o.forEach(arr => {
-      for(let i = 0; i <= gitProjects.length; i++) {
-        if (arr.id === gitProjects[i]){
+  .then((o) => {
+    o.forEach((arr) => {
+      for (let i = 0; i <= gitProjects.length; i++) {
+        if (arr.id === gitProjects[i]) {
           createProjectDiv(i + 1, arr);
         }
       }
-    })
+    });
     loading.classList.toggle('hide');
     return o;
-//Sets an eventlistener for each project that creates a modal on click
-}).then((o) => {
-  const projects = document.querySelectorAll('.project-box-container');
-  projects.forEach((project, index) => {
-    project.addEventListener('click', () => {
-      createEmptyModal();
-      const exit = document.querySelector('.exit-modal'),
-            modal = document.querySelector('.modal'),
-            modalContainer = document.querySelector('.modal-container'),
-            preview = document.querySelector('#modal-previews'),
-            modalImage = document.querySelector('.modal-col1'),
-            modalDescription = document.querySelector('.modal-col3'),
-            gitBtn = document.querySelector('.github-btn'),
-            siteBtn = document.querySelector('.site-btn');
+    //Sets an eventlistener for each project that creates a modal on click
+  })
+  .then((o) => {
+    const projects = document.querySelectorAll('.project-box-container');
+    projects.forEach((project, index) => {
+      project.addEventListener('click', () => {
+        createEmptyModal();
+        const exit = document.querySelector('.exit-modal'),
+          modal = document.querySelector('.modal'),
+          modalContainer = document.querySelector('.modal-container'),
+          preview = document.querySelector('#modal-previews'),
+          modalImage = document.querySelector('.modal-col1'),
+          modalDescription = document.querySelector('.modal-col3'),
+          gitBtn = document.querySelector('.github-btn'),
+          siteBtn = document.querySelector('.site-btn');
 
-      //Set preview image
-      for(let i = 0; i < 3; i++) {
-        preview.innerHTML += `
+        //Set preview image
+        for (let i = 0; i < 3; i++) {
+          preview.innerHTML += `
         <div class="modal-prev ${project.getAttribute('id')}">
-          <img src="https://raw.githubusercontent.com/ChasAcademy-Linnea-Svensson/${project.getAttribute('id')}/main/img/preview/${i + 1}.png">
+          <img src="https://raw.githubusercontent.com/ChasAcademy-Linnea-Svensson/${project.getAttribute(
+            'id'
+          )}/main/img/preview/${i + 1}.png">
         <div>
         `;
-        modalImage.style.background = `url('https://raw.githubusercontent.com/ChasAcademy-Linnea-Svensson/${project.getAttribute('id')}/main/img/preview/1.png') no-repeat center center/cover`;
-      }
+          modalImage.style.background = `url('https://raw.githubusercontent.com/ChasAcademy-Linnea-Svensson/${project.getAttribute(
+            'id'
+          )}/main/img/preview/1.png') no-repeat center center/cover`;
+        }
 
-      const modalPrev = document.querySelectorAll('.modal-prev');
+        const modalPrev = document.querySelectorAll('.modal-prev');
 
-      //Sets background if preview img is clicked
-      modalPrev.forEach((prev, index) => {
-        modalPrev[index].addEventListener('click', ()=> {
-          modalImage.style.background = `url(${prev.firstElementChild.src}) no-repeat center center/cover`;
+        //Sets background if preview img is clicked
+        modalPrev.forEach((prev, index) => {
+          modalPrev[index].addEventListener('click', () => {
+            modalImage.style.background = `url(${prev.firstElementChild.src}) no-repeat center center/cover`;
+          });
         });
-      })
 
-      // Set description
-      modalDescription.insertAdjacentText("afterbegin",
-        descArray[index]);
+        // Set description
+        modalDescription.insertAdjacentText('afterbegin', descArray[index]);
 
-      //Set button links
-      gitBtn.href = gitBtnArray[index];
-      siteBtn.href = siteBtnArray[index];
-            
-      //Close down modal and remove from body
-      exit.addEventListener('click', () => {
-        toggleModal();
-        exit.parentElement.parentElement.remove();
-      })
-      modal.addEventListener('click', () => {
-        toggleModal();
-        exit.parentElement.parentElement.remove();
-      })
-      modalContainer.addEventListener('click', (e) => {
-        e.stopImmediatePropagation();
-      })
-      preview.addEventListener('click', (e) => {
-        e.stopImmediatePropagation();
-      })
-    })
-  })
-});
+        //Set button links
+        gitBtn.href = gitBtnArray[index];
+        siteBtn.href = siteBtnArray[index];
+
+        //Close down modal and remove from body
+        exit.addEventListener('click', () => {
+          toggleModal();
+          exit.parentElement.parentElement.remove();
+        });
+        modal.addEventListener('click', () => {
+          toggleModal();
+          exit.parentElement.parentElement.remove();
+        });
+        modalContainer.addEventListener('click', (e) => {
+          e.stopImmediatePropagation();
+        });
+        preview.addEventListener('click', (e) => {
+          e.stopImmediatePropagation();
+        });
+      });
+    });
+  });
